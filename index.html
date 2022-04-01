@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/fontawesome.css"
+
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="assets/js/dygraph21.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="assets/css/dygraph21.css">
+
+<style type="text/css">
+
+      
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- начало на navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top">
+
+  <div class="container">
+
+    <a class="navbar-brand logo-font fs-4" href="#" class="">
+
+        <img src="images/beegraph_logo.png" alt="BeeGraph.bg">BeeGraph</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+
+          <a class="nav-link active" aria-current="page" href="#">Начало</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Продукти</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Отзиви</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Портфолио</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Цени</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Контакти</a>
+
+        </li>
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+            Моя БийГраф
+
+          </a>
+
+          <ul class="dropdown-menu menu_dropdown" aria-labelledby="navbarDropdownMenuLink">
+
+            <li><a class="dropdown-item" href="#">Лясково</a></li>
+
+            <li><a class="dropdown-item" href="#">Бургас</a></li>
+
+            <li><a class="dropdown-item" href="#">Бяла вода</a></li>
+
+          </ul>
+
+        </li>
+
+        <li class="nav-item btn-none">
+
+          <a class="nav-link" href="#">Вход</a>
+
+        </li>
+
+
+
+      </ul>
+
+      <button type="button" class="rounded-pill btn-rounded">
+
+          <span>
+
+              <i class="fas fa-user-alt"></i>
+
+          </span>Вход
+
+        </button>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- край navbar -->
+
+<!-- инфо съобщения-->
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+
+  </symbol>
+
+  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+
+  </symbol>
+
+  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+
+  </symbol>
+
+</svg>
+
+<div class="container info_bar">
+
+    <div class="alert alert-primary d-flex align-items-center info_alert" role="alert" id="AnmkForm1" style="display:none;">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+
+    <div>
+
+      <form action="beelogger_show.php" method="post" id="AnmkForm" style="display:none;">
+
+        <span title="Редактирайте съществуваща бележка, като щракнете върху съответния запис в диаграмата."><b>Добави бележка:</b></span>
+
+        <input id="Sensor_anno" name="sensor" type="text" style="width:103px;" value="Sensor_anno" title="Сензор"/>
+
+        <input id="Datum_anno" type="text" style="width:115px;" value="" title="Дата"/>
+
+        <input id="Termin_anno" name="termin" type="hidden" />
+
+        
+
+        <input id="K_anno" name="kurztext" type="text" maxlength="10" size="6" value="" title="Кратко описание"/><select name="note_icon"><option value="" selected>Етикет вместо икона</option><option value="../beelogger_icons/n_1 Leerrahmen hinzu.png">Икона: 1 Cadre vide ajouté</option><option value="../beelogger_icons/n_1 Rahmen mit Mittelwand hinzu.png">Икона: 1 Rahmen mit Mittelwand hinzu</option><option value="../beelogger_icons/n_2 Leerrahmen hinzu.png">Икона: 2 Leerrahmen hinzu</option><option value="../beelogger_icons/n_2 Rahmen mit Mittelwand hinzu.png">Икона: 2 Rahmen mit Mittelwand hinzu</option><option value="../beelogger_icons/n_Absperrgitter.png">Икона: Absperrgitter</option><option value="../beelogger_icons/n_Akkutausch.png">Икона: Akkutausch</option><option value="../beelogger_icons/n_Ameisensaeurebehandlung.png">Икона: Ameisensaeurebehandlung</option><option value="../beelogger_icons/n_Bienenflucht eingesetzt.png">Икона: Bienenflucht eingesetzt</option><option value="../beelogger_icons/n_Brutwabe entnommen.png">Икона: Brutwabe entnommen</option><option value="../beelogger_icons/n_Brutwabe hinzu.png">Икона: Brutwabe hinzu</option><option value="../beelogger_icons/n_Durchsicht - Achtung.png">Икона: Durchsicht - Achtung</option><option value="../beelogger_icons/n_Durchsicht - Alles OK.png">Икона: Durchsicht - Alles OK</option><option value="../beelogger_icons/n_Durchsicht.png">Икона: Durchsicht</option><option value="../beelogger_icons/n_Fuetterung.png">Икона: Fuetterung</option><option value="../beelogger_icons/n_Futterwabe entnommen.png">Икона: Futterwabe entnommen</option><option value="../beelogger_icons/n_Futterwabe entnommen.pxm">Икона: Futterwabe entnommen</option><option value="../beelogger_icons/n_Futterwabe hinzu.png">Икона: Futterwabe hinzu</option><option value="../beelogger_icons/n_Futterzarge.png">Икона: Futterzarge</option><option value="../beelogger_icons/n_Honigernte.png">Икона: Honigernte</option><option value="../beelogger_icons/n_Honigraum entfernt.png">Икона: Honigraum entfernt</option><option value="../beelogger_icons/n_Honigraum hinzu.png">Икона: Honigraum hinzu</option><option value="../beelogger_icons/n_Koenigin blau gezeichnet.png">Икона: Koenigin blau gezeichnet</option><option value="../beelogger_icons/n_Koenigin gelb gezeichnet.png">Икона: Koenigin gelb gezeichnet</option><option value="../beelogger_icons/n_Koenigin gruen gezeichnet.png">Икона: Koenigin gruen gezeichnet</option><option value="../beelogger_icons/n_Koenigin rot gezeichnet.png">Икона: Koenigin rot gezeichnet</option><option value="../beelogger_icons/n_Koenigin weiss gezeichnet.png">Икона: Koenigin weiss gezeichnet</option><option value="../beelogger_icons/n_Oxalsaeurebehandlung.png">Икона: Oxalsaeurebehandlung</option><option value="../beelogger_icons/n_Schwarmabgang.png">Икона: Schwarmabgang</option><option value="../beelogger_icons/n_Totale Brutentnahme.png">Икона: Totale Brutentnahme</option><option value="../beelogger_icons/n_Triggeralarm.png">Икона: Triggeralarm</option><option value="../beelogger_icons/n_Varroabehandlung.png">Икона: Varroabehandlung</option><option value="../beelogger_icons/n_Varroaeinschub.png">Икона: Varroaeinschub</option><option value="../beelogger_icons/n_Wetter (Schnee-Hagel-Wind).png">Икона: Wetter (Schnee-Hagel-Wind)</option></select>&nbsp;&nbsp;<input id="Edit_anno" name="langtext" type="text" value="" title="Текст на бележката"/>
+
+        &nbsp;&nbsp;<input type='hidden' name = 'passwort' value = 'Super'>
+
+      <input type="hidden" name = "csvdatei" value = "week.csv">
+
+      &nbsp;&nbsp;
+
+      <button type="submit" name="erzeugen" value="1" title="Запази новата бележка"><b>Добави</b></button>
+
+      &nbsp;&nbsp;
+
+      <button type="reset" onclick="Cancel_note()" style="background-color: #e7846f;" name="cancelAnmerkungErzeugen" value="0"><b>Откажи</b></button>
+
+      </form>
+
+          </div>
+
+    </div>
+
+    <div class="alert alert-success d-none align-items-center info_alert" role="alert">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+
+    <div>
+
+        An example success alert with an icon
+
+    </div>
+
+    </div>
+
+    <div class="alert alert-warning d-none align-items-center info_alert" role="alert">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+
+    <div>
+
+        An example warning alert with an icon
+
+    </div>
+
+    </div>
+
+    <div class="alert alert-danger d-none align-items-center " role="alert">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+
+    <div>
+
+        An example danger alert with an icon
+
+    </div>
+
+    </div>
+
+</div>
+
+<!-- край на инфо съобщения-->
+
+<!-- начало на бутоните за сензорите-->
+
+<div class="container justify-content-between sensorbuttons" id="Sensorbuttons">
+
+    <div class="sc-button" id="sc-button0">
+
+        <input type="checkbox" id="sb0"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt0" data-bs-toggle="tooltip" data-bs-placement="top" for="sb0" title="Температура в кошера" ></label>
+
+    </div>
+
+    <div class="sc-button" id="sc-button1">
+
+        <input type="checkbox" id="sb1"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt1" data-bs-toggle="tooltip" data-bs-placement="top" for="sb1" title="Температура извън кошера" ></label>
+
+    </div>
+
+    <div  class="sc-button id="sc-button2">
+
+        <input type="checkbox" id="sb2"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt2" data-bs-toggle="tooltip" data-bs-placement="top" for="sb2" title="Влажност в кошера" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button3">
+
+        <input type="checkbox" id="sb3"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt3" data-bs-toggle="tooltip" data-bs-placement="top" for="sb3" title="Влажност извън кошера" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button4">
+
+        <input type="checkbox" id="sb4"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt4" data-bs-toggle="tooltip" data-bs-placement="top" for="sb4" title="Тегло" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button5">
+
+        <input type="checkbox" id="sb5"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt5" data-bs-toggle="tooltip" data-bs-placement="top" for="sb5" title="Нарежение на батерия" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button6">
+
+        <input type="checkbox" id="sb6"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt6" data-bs-toggle="tooltip" data-bs-placement="top" for="sb6" title="Напрежение на сл. клетка" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button7">
+
+        <input type="checkbox" id="sb7"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt7" data-bs-toggle="tooltip" data-bs-placement="top" for="sb7" title="Сила на сигнала" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sk-button8">
+
+        <input type="checkbox" id="sb8"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt8" data-bs-toggle="tooltip" data-bs-placement="top" for="sb8" title="Осветеност" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button9">
+
+        <input type="checkbox" id="sb9"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt9" data-bs-toggle="tooltip" data-bs-placement="top" for="sb9" title="Валежи" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button10">
+
+        <input type="checkbox" id="sb10"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt10" data-bs-toggle="tooltip" data-bs-placement="top" for="sb10" title="Дневен прираст" ></label>
+
+    </div>    
+
+    <div class="sc-button id="sc-button11">
+
+        <input type="checkbox" id="sb11"  onclick="change(this)" >
+
+			 <label class ="sbt" id="sbt11" data-bs-toggle="tooltip" data-bs-placement="top" for="sb11" title="Прираст с наслагване" ></label>
+
+    </div>
+
+    <div class="sc-button id="sc-button12">
+
+        <input type="checkbox" id="sb12"  onclick="change(this)">
+
+			 <label class ="sbt" id="sbt12" data-bs-toggle="tooltip" data-bs-placement="top" for="sb12" title="Валежи с наслагване" ></label>
+
+    </div>
+
+    <div class="sc-button id="sc-button13">
+
+        <input type="checkbox" id="sb13" disabled onclick="change(this)">
+
+			 <label class ="sbt" id="sbt13" data-bs-toggle="tooltip" data-bs-placement="top" for="sb13" title="GPS Локация" ></label>
+
+    </div>
+
+    <div class="sc-button id="sc-button14">
+
+      <input type="checkbox" id="sb14" onclick="change(this)">
+
+     <label class ="sbt" id="sbt14" data-bs-toggle="tooltip" data-bs-placement="top" for="sb14" title="Приложи" ></label>
+
+  </div>
+
+  <div class="sc-button id="sc-button15">
+
+    <input type="checkbox" id="sb15" onclick="change(this)">
+
+   <label class ="sbt" id="sbt15" data-bs-toggle="tooltip" data-bs-placement="top" for="sb15" title="Приложи" ></label>
+
+</div>
+
+<!-- HTML to write -->
+
+
+
+
+
+
+
+</div>
+
+<div class="container">
+
+      <div id="beelogger_grafik"> </div>
+
+
+
+  </div><div id="DatenAreaKonfig">
+
+
+
+</div>
+
+<!-- край на бутоните за сензорите-->
+
+<!-- старт интро --------
+
+<section id="home" class="intro-section">
+
+    <div class="container">
+
+        <div class="row align-items-center text-white">
+
+            <div class="col-md-6 intros">
+
+                <h1 class="display-2">
+
+                    <span class="display-2--intro">Вземи своя</span>
+
+                    <span class="display-2--intro logo-font">BeeGraph</span>
+
+                    <span class="display-2--description lh-base">Иновативна автоматизирана система за мониторинг на пчелни семейства. Енергийно незаисим хардуер и софтуер за анализ на измерените данни. <a class="text-white" href="#">Научи повече...</a></span>
+
+                </h1>
+
+                <button type="button" class="rounded-pill btn-rounded">
+
+                    <span>
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </span>Поръчай BeeGraph
+
+                </button>
+
+
+
+            </div>
+
+            <div class="col-md-6 intros">
+
+                <div class="scale-box">
+
+                    <img src="images/clouds-bee.svg" alt="" class="img-fluid">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+---------- край на интро-->
+
+<div id="DatenAreaAendAnmrk">  
+  <form action="beelogger_show.php" method="post" id="LoeAenForm" style="display:none;"><b></form>
+</div>
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+  // Задаване на глобални променливи
+
+  var Werteloeschen = false;
+
+  var beelogger;  // die dygraph Objecte
+
+  var desired_range = null;   // Област на показване/увеличение Dygraph
+
+  var move = 0;         // Ограничете броя на стъпките до desired_range 
+
+  var SingleCheck = 0;    // променлива, която показва колко криви се показват  
+
+  var data_d = [];      // нова структура от данни
+
+  var tag_setup = 0;      // изчислени дневни стойности ?
+
+  var summe_setup = 0;      // изчислени кумулативни стойности ?
+
+  var roll_period = 1;
+
+  var ann_count = 0;
+
+  var LoeschenButton = 0;   //Състояние на бутона за изтриване 0 = не е натиснат
+
+  var d_names = ["Не","По","Вт","Ср","Че","Пе","Съ"];
+
+  var m_names = [" Яну"," Фев"," Мар"," Апр"," Май"," Юни"," Юли"," Авг"," Сеп"," Окт"," Ное"," Дек"];     
+
+  var EinzelEinheiten = ['[&deg;C]','[&deg;C]','[%]','[%]','[lux]','[kg]','[V]','[V]','[s/dBm]','[kg]','[hPa]','[l/m^2]','[]','[kg]','[kg]','[kg]'];
+
+  var points_show=1;
+
+  var EinzelSensoren = ["Температура в кошера","Външна температура","Влажност в кошера","Външна влажност","05","Тегло","Батерия","Солар","Service","10","11","12","13",'Ден+','Ден-','Сума'];
+
+
+
+  function KonfigBtnPressed() 
+  {  // Konfiguration Button ohne Passwort gedrückt
+
+    Werteloeschen = false;
+
+    //document.getElementById('WertBtn').disabled = true;
+
+    document.getElementById('AnmerkungenBtn').disabled = true;
+
+    //document.getElementById('KonfigPasswortEingabeForm').style.display = "block";//FORM ZEIGEN
+
+    document.getElementById('LoeAenForm').style.display = "none"; //FORM Löschen Ändern Anmerkung AUS
+
+    document.getElementById('AnmkForm').style.display = "none"; //FORM Neue Anmerkung AUS / FORM Нова анотация ИЗКЛ
+
+    document.getElementById('WertloeschenForm').style.display = "none"; //FORM AUS
+
+  } 
+
+
+
+function AnmerkungBtnPressed() 
+
+  { // Löschen bzw Ändern von Anmerkungen Button gedrückt 
+
+    //document.getElementById('WertBtn').disabled = true;
+
+    document.getElementById('AnmerkungenBtn').disabled = true;
+
+    document.getElementById('LoeAenForm').style.display = "block"; //FORM Löschen ändern Anmerkung AN
+
+    document.getElementById('AnmkForm').style.display = "none"; //FORM AUS
+
+    document.getElementById('WertloeschenForm').style.display = "none"; //FORM AUS 
+
+  }
+
+
+
+function WertBtnPressed() 
+
+  { // Button Wert Löschen/ändern gedrückt
+
+    Werteloeschen = true;
+
+    document.getElementById('WertBtn').disabled = true;
+
+    document.getElementById('AnmerkungenBtn').disabled = true;
+
+    document.getElementById('WertloeschenForm').style.display = "block"; //FORM Löschen/ändern für Werte ZEIGEN
+
+    document.getElementById('LoeAenForm').style.display = "none";//FORM AUS
+
+    document.getElementById('AnmkForm').style.display = "none";//FORM AUS  
+
+   }
+
+
+
+function Cancel_note() 
+
+  { // Abruchbutton in Form gedrückt (Default herstellen)
+
+    Werteloeschen = false; //Ценности
+
+    //document.getElementById("WertBtn").disabled = false; //Бутон за стойности
+
+    //document.getElementById('KonfigBtn').disabled = false;  
+
+    //document.getElementById('LoeAenForm').style.display = "none"; //FORM AUS
+
+    document.getElementById('AnmkForm').style.display = "none";
+
+    document.getElementById('AnmkForm1').style.display = "none";
+
+    document.getElementById('WertloeschenForm').style.display = "none";
+
+    //document.getElementById('KonfigPasswortEingabeForm').style.display = 'none';
+
+  }
+
+
+
+//Mouseover fuer Icon erzeugen 
+
+//document.getElementById("sbl0").setAttribute("title", "Температура в кошера");
+
+//document.getElementById("sbl1").setAttribute("title", "Външна температура");
+
+//document.getElementById("sbl2").setAttribute("title", "Влажност в кошера");
+
+//document.getElementById("sbl3").setAttribute("title", "Външна влажност");
+
+//document.getElementById("sbl5").setAttribute("title", "Тегло");
+
+//document.getElementById("sbl6").setAttribute("title", "Батерия");
+
+//document.getElementById("sbl7").setAttribute("title", "Солар");
+
+//document.getElementById("sbl8").setAttribute("title", "Service");
+
+
+
+var beelogger = new Dygraph(document.getElementById("beelogger_grafik"),
+
+  'week.csv',
+
+  //Optionen
+      {
+
+  //Labels
+
+    labels: [ 'Datum',"Температура в кошера","Външна температура","Влажност в кошера","Външна влажност","05","Тегло","Батерия","Солар","Service","10","11","12",'13','Ден+','Ден-','Сума'],
+
+    colors: ['red','orangered','blue','deepskyblue','gold','black','teal','purple','fuchsia','silver','gray','gray','gray','#00ff01','#ff0001','orange'],
+
+    visibility: [true,true,true,true,false,true,true,true,false,false,false,false,false,false,false,false],
+
+    xlabel: '',ylabel:'',y2label:'',
+    
+    series : {
+
+        "Температура в кошера": { axis: 'y' },
+
+        "Външна температура": { axis: 'y' },
+
+        "Влажност в кошера": { axis: 'y' },
+
+        "Външна влажност": { axis: 'y' },
+
+        "05": { axis: 'y' },
+
+        "Тегло": { axis: 'y2',showInRangeSelector: true },
+
+        "Батерия": { axis: 'y' },
+
+        "Солар": { axis: 'y2' },
+
+        "Service": { axis: 'y2' },
+
+        "10": { axis: 'y2' },
+
+        "11": { axis: 'y2' },
+
+        "12": { axis: 'y2' },
+
+        "13": { axis: 'y2' },
+
+        'Ден+': {axis:'y' ,drawPoints:false,pointSize:1,fillGraph:true,fillAlpha:0.5 },
+
+        'Ден-': {axis:'y' ,drawPoints:false,pointSize:1,fillGraph:true,fillAlpha:0.5 },
+
+        'Сума': { axis: 'y',drawPoints:false,pointSize:1,fillGraph:true,fillAlpha:0.2 },            },
+
+  axes: {
+
+    x:{axisLabelFormatter:function(d,gran){
+
+      var curr_day=d_names[d.getDay()];
+
+      var curr_month=m_names[d.getMonth()];
+
+      try{var w=beelogger.xAxisRange();}
+
+      catch(ignore){var w=[0,1];}
+
+      if((w[1]-w[0])<(86400000*3)){
+
+        var Minuten=d.getMinutes();
+
+        Minuten=((Minuten<10)?"0"+Minuten:Minuten);
+
+        return curr_day+" "+d.getDate()+""+curr_month+""+d.getHours()+":"+ Minuten+" ";
+
+      }
+
+      else{return curr_day+" "+d.getDate()+""+curr_month;}
+
+    },
+
+    axisLabelWidth:160,pixelsPerLabel:110
+
+  },
+
+  y:{independentTicks:true,axisLabelWidth:60,pixelsPerLabel:30,valueRange:[null,null]},
+
+  y2:{independentTicks:true,axisLabelWidth:60,pixelsPerLabel:30}},
+
+  hideOverlayOnMouseOut: false,
+
+  connectSeparatedPoints:true,
+
+	strokeWidth:2,
+
+  showRoller:true,
+
+	rollPeriod:1,
+
+  drawPoints:false,    
+
+	displayAnnotations: true,   // ohne Annotation
+
+  highlightSeriesOpts:{strokeWidth:2,strokeBorderWidth:1,highlightCircleSize:4},
+
+
+  drawCallback:function(g,is_initial){if(!move){setTimeout(function(){konfig_Axes();},10);}},
+
+  zoomCallback:function(a,b,c){if(!move){berechne_sum();}},
+
+  pointClickCallback: function(event, p) 
+
+    {
+
+      // Checke, ob bereits an der Stelle eine Anmerkung besteht
+
+      if (p.annotation) return;
+
+      beelogger.updateOptions({rollPeriod:1});  // neu
+
+      if (Werteloeschen == false) 
+
+        {   
+
+        document.getElementById('AnmkForm').style.display = "block"; //Form für neue Anmerkung "einblenden"
+
+        document.getElementById('LoeAenForm').style.display = "none"; //Form loschen oder ändern einer Anmerkung ausblenden
+
+        //document.getElementById('KonfigPasswortEingabeForm').style.display = 'none';
+
+        //document.getElementById('WertBtn').disabled = true;
+
+        //document.getElementById('AnmerkungenBtn').disabled = false;
+
+        var anns = beelogger.annotations();
+
+        var ann_num = anns.length;
+
+
+
+        if (ann_num == ann_count)
+
+          { //letzte Anmerkung loschen - nur eine neue pro Speicherung erlaubt
+
+            anns.splice(ann_num-1,1);  // 
+
+          }
+
+        var datum = new Date(p.xval);
+
+        var dat_str = String(datum.getFullYear()) + "/" + String("0" + (datum.getMonth()+1)).slice(-2) + "/" + String('0'+datum.getDate()).slice(-2) + " " + String('0'+datum.getHours()).slice(-2) + ":" + String('0'+datum.getMinutes()).slice(-2) + ":" + String('0'+datum.getSeconds()).slice(-2);
+
+        var ann={series:p.name,xval:p.xval,shortText:"? Kürzel",text:"нов"};
+
+        anns.push(ann);
+
+        beelogger.setAnnotations(anns);
+
+        document.getElementById('Sensor_anno').value = p.name; //Anmerkung Sensor
+
+        document.getElementById('Datum_anno').value = dat_str; //Anmerkung Datum
+
+        document.getElementById('Termin_anno').value = p.xval; //Anmerkung Zeitstempel
+
+        document.getElementById('K_anno').value = "Етикет"; //Anmerkung Kurztext
+
+        document.getElementById('Edit_anno').value = "Описание"; //Anmerkung Beschreibung lang
+
+        //Werteloeschen = true;
+
+        } // if Werteloeschen
+
+      else 
+
+        {   
+
+        document.getElementById('WertloeschenForm').style.display = "block"; //Form Wertloschen einblenden
+
+        var datum = new Date(p.xval);
+
+        var dat_str = String(datum.getFullYear()) + "/" + String("0" + (datum.getMonth()+1)).slice(-2) + "/" + String('0'+datum.getDate()).slice(-2) + " " + String('0'+datum.getHours()).slice(-2) + ":" + String('0'+datum.getMinutes()).slice(-2) + ":" + String('0'+datum.getSeconds()).slice(-2);
+
+        document.getElementById('Sensor_annoL').value = p.name; 
+
+        document.getElementById('Datum_annoL').value = dat_str;
+
+        document.getElementById('WertL').value = p.yval;
+
+        document.getElementById('Termin_annoL').value = p.xval;
+
+        Werteloeschen = true;
+
+        } //else
+
+      }, 
+
+    
+
+  showRangeSelector:true,rangeSelectorHeight:30,
+
+  legend:'always',labelsSeparateLines:true,labelsShowZeroValues:true,
+
+  pointSize:3,
+
+  interactionModel: Dygraph.defaultInteractionModel}
+);//край на графиката
+
+
+
+//*****************
+
+beelogger.ready(function() {
+
+
+
+
+
+my_onresize();
+
+
+
+//Auswahlboxen Tageswert vorbelegen
+
+//document.getElementById("tagwertbox").options[2].selected = true;
+
+//document.getElementById("tagwertbox").selectedIndex = "2"; 
+
+// Tag und Summe aus
+
+beelogger.setVisibility(13,false); // tag
+
+beelogger.setVisibility(14,false); // tag
+
+beelogger.setVisibility(15,false); // summe
+
+//document.getElementById('sb14').checked = false;
+
+document.getElementById('sb13').checked = false;
+
+
+
+// erstmaligen Laden und Taste "F5"
+
+var is_visib = beelogger.visibility();
+
+
+
+document.getElementById("sb0").checked = is_visib[0];
+
+document.getElementById("sb1").checked = is_visib[1];
+
+document.getElementById("sb2").checked = is_visib[2];
+
+document.getElementById("sb3").checked = is_visib[3];
+
+document.getElementById("sb4").checked = is_visib[4];
+
+document.getElementById("sb5").checked = is_visib[5];
+
+document.getElementById("sb6").checked = is_visib[6];
+
+document.getElementById("sb7").checked = is_visib[7];
+
+document.getElementById("sb8").checked = is_visib[8];
+
+document.getElementById("sb9").checked = is_visib[9];
+
+document.getElementById("sb10").checked = is_visib[10];
+
+document.getElementById("sb11").checked = is_visib[11];
+
+document.getElementById("sb12").checked = is_visib[12];
+
+setup_Axes();
+
+setTimeout(function(){pan(-1);}, 100); // force redraw
+
+show_points();
+
+// Anmerkungen einlesen
+
+
+
+//Datei notes.csv nach Anmerkungen durchsuchen und im Array für die Darstellung aufbereiten-----
+
+beelogger.setAnnotations([  ]);
+
+var anns = beelogger.annotations();
+
+ann_count = anns.length+1;
+
+
+
+setTimeout(function(){pan(-1);}, 100); // force redraw
+
+}); // .ready ende
+
+
+
+// show_points: Datenpunkte zeigen
+
+function show_points(){
+
+if(points_show){
+
+  beelogger.updateOptions({drawPoints:false});
+
+  points_show=0;
+
+  //document.getElementById("123").style.backgroundColor = "lightgrey"; // промяна на цвета на инфо бара
+
+}
+
+else{
+
+  beelogger.updateOptions({drawPoints:true});
+
+  points_show=1;
+
+  document.getElementById("123").style.backgroundColor = "green";
+
+}
+
+animate();    
+
+}
+
+
+
+// set_legend: Legende Varianten
+
+var legend_state = 1;function set_legend(){
+
+if(legend_state ==2){
+
+  document.getElementById("124").style.backgroundColor = "lightgrey";
+
+  beelogger.updateOptions({legend:'never'});
+
+  legend_state=0;
+
+}
+
+else if(legend_state ==1){
+
+  document.getElementById("124").style.backgroundColor = "grey";
+
+  beelogger.updateOptions({legend:'follow'});
+
+  legend_state=2;
+
+}
+
+else{
+
+  document.getElementById("124").style.backgroundColor = "green";
+
+  beelogger.updateOptions({legend:'always'});
+
+  legend_state=1;
+
+}
+
+animate();    
+
+}
+
+
+
+// my_onresize: resize Event Grafik an Fenster anpassen
+
+function my_onresize(){
+
+var w = window.innerWidth;  // das Fenster an sich 
+
+var h = window.innerHeight;
+
+h -=250;  // Abstand zu Buttons etc
+
+if(w<1250){h-=50;} // Wenn buttons nicht mehr in eine Reihe passen
+
+if(w<1100){h-=50;}
+
+if(w<675){h-=50;}
+
+if (h <350){h =350;}
+
+beelogger.resize(w-50,h);
+
+}
+
+
+
+// ** Label fuer Achsen festlegen, valueRange
+
+function setup_Axes(){
+
+
+
+var MainAxis=1;
+
+var curve,n;
+
+var y_label = " ";
+
+var y2_label = " ";
+
+
+
+var y2Kurven=[false,false,false,false,false,true,false,true,true,true,true,true,true,true,true,true]; //zeigt an welche Kurven auf y oder y2 achse liegen
+
+
+
+SingleCheck=0;
+
+var is_visible = beelogger.visibility();
+
+for(var i=0;i<=15;i++){
+
+if (is_visible[i]){
+
+  SingleCheck++;curve=i;
+
+  if (y2Kurven[curve]){
+
+    n=y2_label.includes(EinzelEinheiten[curve]);
+
+    if(n== 0){if(y2_label.length > 1){y2_label+=(", ")};y2_label=y2_label+EinzelEinheiten[curve];}
+
+  }
+
+  else{
+
+    n=y_label.includes(EinzelEinheiten[curve]);
+
+    if(n== 0){if(y_label.length > 1){y_label+=(", ")};y_label=y_label+EinzelEinheiten[curve];}
+
+  } 
+
+}
+
+}
+
+
+
+if (y2Kurven[curve]){MainAxis=2;}
+
+
+
+if(SingleCheck!=1){ 
+
+  beelogger.updateOptions({axes:{y:{valueRange : [null,null]}}}); 
+
+  beelogger.updateOptions({ylabel:y_label});
+
+  beelogger.updateOptions({axes:{y2:{valueRange : [null,null]}}}); 
+
+  beelogger.updateOptions({y2label:y2_label});
+
+  SingleCheck=0;
+
+}
+
+else if(SingleCheck==1){
+
+  if(MainAxis==1){
+
+    beelogger.updateOptions({axes:{y:{valueRange:[null,null]}}}); 
+
+    beelogger.updateOptions({ylabel:EinzelSensoren[curve]+' in '+EinzelEinheiten[curve]});
+
+    beelogger.updateOptions({y2label:'Относителни стойности в ' + EinzelEinheiten[curve]});
+
+  }else{
+
+    beelogger.updateOptions({ylabel:'Относителни стойности в ' + EinzelEinheiten[curve]});
+
+    beelogger.updateOptions({axes:{y2:{valueRange:[null,null]}}}); 
+
+    beelogger.updateOptions({y2label:EinzelSensoren[curve]+' in '+EinzelEinheiten[curve]});
+
+    SingleCheck=2;
+
+  }
+
+  konfig_Axes();
+
+}
+
+} //setup_axes
+
+
+
+// valueRange fuer Achsen konfigurieren
+
+function konfig_Axes(){
+
+if(SingleCheck==0){return;}
+
+var range_y;
+
+var y_offset;
+
+
+
+if(SingleCheck==1){
+
+  range_y=beelogger.yAxisRange(0);
+
+  y_offset=(range_y[1]-range_y[0])*0.1;range_y[1]=range_y[1]-range_y[0]-y_offset;range_y[0]=-y_offset;
+
+  beelogger.updateOptions({axes:{y2:{valueRange:range_y}}});
+
+}
+
+else if(SingleCheck==2){
+
+  range_y=beelogger.yAxisRange(1);
+
+  y_offset=(range_y[1]-range_y[0])*0.1;range_y[1]=range_y[1]-range_y[0]-y_offset;range_y[0]=-y_offset;
+
+  beelogger.updateOptions ({axes: { y: {valueRange : range_y}}});
+
+}
+
+}// konfig_Axes
+
+
+
+// Kurve ein - ausblenden   
+
+function change(el) {  // handle event
+
+  var btn_nmr = el.id;
+
+  var box=parseInt(btn_nmr.substr(2,3));  // id="cbxy"
+
+  var check=el.checked;
+
+  set_btn_and_curv(box,check);
+
+}
+
+
+
+// set buttons and curve
+
+function set_btn_and_curv(box,check){  
+
+
+
+var visib;
+
+if (check){ //alle Kurven aus
+
+  beelogger.setVisibility(0, 0);
+
+  beelogger.setVisibility(1, 0);
+
+  beelogger.setVisibility(2, 0);
+
+  beelogger.setVisibility(3, 0);
+
+  beelogger.setVisibility(4, 0);
+
+  beelogger.setVisibility(5, 0);
+
+  beelogger.setVisibility(6, 0);
+
+  beelogger.setVisibility(7, 0);
+
+  beelogger.setVisibility(8, 0);
+
+  beelogger.setVisibility(9, 0);
+
+  beelogger.setVisibility(10, 0);
+
+  beelogger.setVisibility(11, 0);
+
+  beelogger.setVisibility(12, 0);
+
+  beelogger.setVisibility(13,false);
+
+  beelogger.setVisibility(14,false);
+
+  beelogger.setVisibility(15,false);
+
+  
+
+} //if
+
+
+
+if ((!check)||(box == 15)) {
+
+  visib=document.getElementById("sb0").checked; beelogger.setVisibility(0, visib);
+
+  visib=document.getElementById("sb1").checked; beelogger.setVisibility(1, visib);
+
+  visib=document.getElementById("sb2").checked; beelogger.setVisibility(2, visib);
+
+  visib=document.getElementById("sb3").checked; beelogger.setVisibility(3, visib);
+
+  visib=document.getElementById("sb4").checked; beelogger.setVisibility(4, visib);
+
+  visib=document.getElementById("sb5").checked; beelogger.setVisibility(5, visib);
+
+  visib=document.getElementById("sb6").checked; beelogger.setVisibility(6, visib);
+
+  visib=document.getElementById("sb7").checked; beelogger.setVisibility(7, visib);
+
+  visib=document.getElementById("sb8").checked; beelogger.setVisibility(8, visib);
+
+  visib=document.getElementById("sb9").checked; beelogger.setVisibility(9, visib);
+
+  visib=document.getElementById("sb10").checked; beelogger.setVisibility(10, visib);
+
+  visib=document.getElementById("sb11").checked; beelogger.setVisibility(11, visib);
+
+  visib=document.getElementById("sb12").checked; beelogger.setVisibility(12, visib);
+
+  visib=document.getElementById("sb13").checked;
+
+  beelogger.setVisibility(13,visib); 
+
+  beelogger.setVisibility(sb14,visib);
+
+  visib=document.getElementById("sb14").checked;beelogger.setVisibility(sb15,visib);
+
+  }
+
+  
+
+if (box < 13){beelogger.setVisibility(box, check);}
+
+
+
+// welche Tageswertkurve
+
+//var e = document.getElementById("tagwertbox");
+
+var Value = 1.0;
+
+var Nummer=6;
+
+if (Value.length <= 2 ) Nummer = parseFloat(Value);
+
+Nummer--;
+
+EinzelEinheiten[13] = EinzelEinheiten[Nummer];
+
+EinzelEinheiten[14] = EinzelEinheiten[Nummer];
+
+EinzelEinheiten[15] = EinzelEinheiten[Nummer];
+
+
+
+var nmr = "sb" + Nummer.toString();
+
+
+
+if (box == 13) {  // Tageswerte
+
+   berechne_tag(0);
+
+   if (check){ // Wert zur Tageskurve an
+
+     document.getElementById(nmr).checked = true; // Button 
+
+     beelogger.setVisibility(Nummer,true);        // Kurve
+
+     beelogger.updateOptions({});
+
+     document.getElementById('sb13').checked = true;
+
+   }           
+
+   else {
+
+     beelogger.updateOptions({rollPeriod:roll_period});
+
+   }
+
+   beelogger.setVisibility(13, check);   // Tageswert
+
+   beelogger.setVisibility(14, check); // Summe
+
+}
+
+else if (box == 14) {  // Button Summe
+
+   berechne_tag(0);
+
+   if(summe_setup==0){berechne_sum();summe_setup=1;}
+
+   if (check){ // Wert zur Tageskurve an
+
+     document.getElementById(nmr).checked=true;   // Button
+
+     beelogger.setVisibility(Nummer,true);        // Kurve
+
+     beelogger.updateOptions({});
+
+   }
+
+   beelogger.setVisibility(15, check);  // Summe
+
+}
+
+setup_Axes();
+
+} //function change
+
+
+
+// Box Tageswertanwahl
+
+function tageswertanwahl(){
+
+
+
+  var e = document.getElementById("tagwertbox");
+
+  var Value = e.options[e.selectedIndex].value;
+
+  var Nummer=6;
+
+  if (Value.length <= 2 ) Nummer = parseFloat(Value);
+
+  EinzelEinheiten[13] = EinzelEinheiten[Nummer-1];
+
+  EinzelEinheiten[14] = EinzelEinheiten[Nummer-1];
+
+
+
+  berechne_tag(Nummer); //force
+
+  beelogger.updateOptions({});
+
+  set_btn_and_curv('13', true);  // btn tageswert
+
+  beelogger.updateOptions({});
+
+}
+
+
+
+// Berechne Tageszunahme
+
+function berechne_tag(Nummer) 
+
+{   
+
+if (typeof beelogger === 'undefined') {return;}
+
+if (typeof beelogger.rawData_ === 'undefined') {return;}
+
+
+
+if(roll_period > 8) beelogger.updateOptions({rollPeriod:8});
+
+if (Nummer == 0){if(tag_setup==1){return;}else {Nummer=6;}}
+
+
+
+var k,i,hr_akt,tx_time;
+
+var g_alt,g_neu;
+
+var suche_tag=1,tageswert=0;
+
+var old_d,cur_day,day;
+
+var df_k,diff_korr=0.0;
+
+var datum=new Date();
+
+var boundary=beelogger.numRows();//maximale Anzahl Punkte
+
+
+
+data_d.length=0;
+
+g_neu=beelogger.rawData_[0][Nummer];//Startwert Tageswert
+
+if(g_neu===null){g_neu=0;}
+
+
+
+datum.setTime(beelogger.rawData_[0][0]);
+
+day=datum.getDate();
+
+
+
+var x_ax=boundary-1;
+
+if(Nummer==6){//Auswertung Gewicht
+
+ var e = document.getElementById("tagwertbox");//hole Grenzwert
+
+ var sum_grz = parseFloat(e.options[e.selectedIndex].value); 
+
+ for(i=0;i<boundary;i++) 
+
+   {//fuer alle Punkte
+
+    datum.setTime(beelogger.rawData_[i][0]);
+
+    cur_day = datum.getDate();hr_akt=datum.getHours();
+
+    if(suche_tag) {
+
+      suche_tag=0;k=i;if (k>0){k--;}
+
+      diff_korr =0;day=cur_day;
+
+       while((day==cur_day)&&(k<x_ax)){// whole day
+
+         if(beelogger.rawData_[k][6]!==null){
+
+           if (beelogger.rawData_[k+1][6]===null){
+
+             var ix=1;
+
+             while(ix<10){ix++;if(beelogger.rawData_[k+ix][6]!==null){df_k=beelogger.rawData_[k][6]-beelogger.rawData_[k+ix][6];break;}}
+
+           }
+
+           else{df_k=beelogger.rawData_[k][6]-beelogger.rawData_[k+1][6];}
+
+           if (Math.abs(df_k)>sum_grz){diff_korr+=df_k;}
+
+         }
+
+         k++;datum.setTime(beelogger.rawData_[k][0]);day=datum.getDate();
+
+       }
+
+       old_d=cur_day;g_alt=g_neu;
+
+       if(beelogger.rawData_[k-1][6] !== null){g_neu = beelogger.rawData_[k-1][6];}else {g_neu=g_alt;}
+
+      tageswert=g_neu-g_alt+diff_korr;if(Math.abs(tageswert)<0.015)tageswert=0.0;
+
+    }
+
+    if(cur_day!=old_d){suche_tag=1;tageswert=0;}//next day
+
+    if((hr_akt>=4)&&(hr_akt<20)){
+
+    if(tageswert>0){
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],tageswert,,0]);
+
+      }
+
+    else if(tageswert<0){
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],,tageswert,0]);
+
+      }
+
+    else{
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],0,,0]);
+
+      }
+
+    }
+
+  else{//0...6
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],,,0]);
+
+    }
+
+  }//end for  
+
+}
+
+else{//Auswertung Regen
+
+ for(i=0;i<boundary;i++) 
+
+   {//fuer alle Punkte
+
+    datum.setTime(beelogger.rawData_[i][0]);
+
+    cur_day = datum.getDate();hr_akt=datum.getHours();
+
+    if(suche_tag) {
+
+      suche_tag=0;k=i;if (k>0){k--;}
+
+      tageswert=0;day=cur_day;
+
+       while((day==cur_day)&&(k<x_ax)){//whole day
+
+        if(beelogger.rawData_[k][Nummer]!==null){
+
+          tageswert+=beelogger.rawData_[k][Nummer];//nur addieren
+
+        }
+
+        k++;datum.setTime(beelogger.rawData_[k][0]);day=datum.getDate();
+
+       }
+
+      old_d=cur_day;
+
+      if(Math.abs(tageswert)<0.05)tageswert=0.0;    
+
+    }
+
+
+
+    if(cur_day!=old_d){//next day
+
+      suche_tag=1;tageswert=0;
+
+    }
+
+    if((hr_akt>=3)&&(hr_akt<=22)){
+
+     if(tageswert>0){
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],tageswert,,0]);
+
+      }
+
+     else if(tageswert<0){
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],,tageswert,0]);
+
+      }
+
+     else{
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],0,,0]);
+
+     }
+
+    }
+
+    else{//0...6
+
+      data_d.push([new Date(beelogger.rawData_[i][0]),beelogger.rawData_[i][1],beelogger.rawData_[i][2],beelogger.rawData_[i][3],beelogger.rawData_[i][4],beelogger.rawData_[i][5],beelogger.rawData_[i][6],beelogger.rawData_[i][7],beelogger.rawData_[i][8],beelogger.rawData_[i][9],beelogger.rawData_[i][10],beelogger.rawData_[i][11],beelogger.rawData_[i][12],beelogger.rawData_[i][13],,,0]);
+
+    }
+
+  }//end for
+
+}//else
+
+
+
+beelogger.updateOptions({'file':data_d});//neue Werte laden
+
+setTimeout(function(){berechne_sum();},10);
+
+tag_setup=1;
+
+}
+
+
+
+// Berechne Summe aktueller Anzeigebereich
+
+function berechne_sum() {  // 
+
+
+
+if (typeof beelogger === 'undefined') {return;}
+
+if (typeof beelogger.rawData_ === 'undefined') {return;}
+
+if (data_d.length == 0 ){return;} // keine Daten
+
+
+
+var i, tim;
+
+var datum = new Date();
+
+var sum_gew = 0, once = 1;
+
+i = 0;
+
+j = beelogger.numRows();  // maximale Anzahl Punkte
+
+
+
+for(x=0;x< 14 ;x++){ // suche grenzen#
+
+  try {
+
+    i = beelogger.boundaryIds_[x][0]; // akueller Bereich
+
+    j = beelogger.boundaryIds_[x][1];
+
+    break;
+
+  }catch(ignore){}//nothing
+
+}
+
+
+
+try {
+
+for(;i<j;i++) {
+
+  datum.setTime(data_d[i][0]);tim=datum.getHours();
+
+  if(once&&(tim>=4)&&(tim<18)){
+
+  if (!isNaN(data_d[i+1][14])){ 
+
+    sum_gew=sum_gew+data_d[i+1][14];
+
+    once=0;
+
+  }
+
+  if (!isNaN(data_d[i+1][15])){ 
+
+    sum_gew=sum_gew+data_d[i+1][15];
+
+    once=0;
+
+  }
+
+  }
+
+  else if((tim>=22)||(tim<4)){once=1;}
+
+  data_d[i][16]=sum_gew;
+
+} // end for
+
+}catch(ignore){}//nothing
+
+beelogger.updateOptions({'file':data_d});  // neue Werte laden  
+
+}
+
+
+
+// Button Reset Zoom
+
+function reset_Zoom() {desired_range=null;beelogger.resetZoom();}
+
+
+
+// Button zeige (letzten) Tag/Monat/Woche usw
+
+function zoom(res) {
+
+  if (res > 86400){
+
+       beelogger.updateOptions ({axes: { x: {pixelsPerLabel: 90}}});
+
+  }
+
+  else {
+
+       beelogger.updateOptions ({axes: { x: {pixelsPerLabel: 105}}});
+
+  }
+
+  
+
+  var wold=beelogger.xAxisExtremes();
+
+  var w=beelogger.xAxisRange();
+
+  if((w[1]-res*1000)<wold[0]){w[0]=wold[0]; // ganz links
+
+    if((w[1]+res *1000)<wold[1]){w[1]=w[1]+res*1000;} // nach rechts geht noch
+
+    else{w[1]=wold[1];} // ganz rechts
+
+    desired_range=[w[0],w[1]];
+
+  }
+
+  else{desired_range=[w[1]-res*1000,w[1]];}
+
+  animate();
+
+}
+
+
+
+// Button Ansicht nach links oder rechts verschieben
+
+function pan(dir) {  
+
+  var wold=beelogger.xAxisExtremes();
+
+  var w=beelogger.xAxisRange();
+
+  var scale=(w[1]-w[0]);  // aktuelle X - Ansicht
+
+  var amount=scale*dir; // Versatz 
+
+  if((dir<0)&&(w[0]>wold[0])){  // Grenze links
+
+    if((w[0]+amount)<=wold[0]){w[0]=wold[0]-amount;w[1]=w[0]+scale;}
+
+    desired_range=[w[0]+amount,w[1]+amount];
+
+    animate();
+
+  }
+
+  if((dir>0)&&(w[1]<wold[1])){  // Grenze rechts
+
+    if((w[1]+amount)>=wold[1]){w[1]=wold[1]-amount;w[0]=w[1]-scale;}
+
+    desired_range=[w[0]+amount,w[1]+amount];
+
+    animate();
+
+  }
+
+  animate();
+
+}
+
+
+
+// Button Zeige gleichen Bereich am rechten oder linkem Ende
+
+function panend(dir) {
+
+  var wold=beelogger.xAxisExtremes();
+
+  var w=beelogger.xAxisRange();
+
+  var scale=(w[1]-w[0]);        // Bereich aktuelle X - Ansicht
+
+  var multiplier;
+
+    if(dir<0){multiplier=(wold[0]-w[0])/scale;}
+
+  else{multiplier=(wold[1]-w[1])/scale;}
+
+  var amount = scale * multiplier;   
+
+  if((dir<0)&&(w[0]>wold[0])){ // Grenze links erreicht?
+
+    if((w[0]+amount)<=wold[0]){w[0]=wold[0]-amount;w[1]=w[0]+scale;}
+
+    desired_range=[w[0]+amount,w[1]+amount];
+
+    animate();
+
+  }
+
+  if((dir>0)&&(w[1]<wold[1])){  // Grenze rechts erreicht ?
+
+    if((w[1]+amount)>= wold[1]){w[1]=wold[1]-amount;w[0]=w[1]-scale;}
+
+
+
+    desired_range=[w[0]+amount,w[1]+amount];
+
+    animate();
+
+  }
+
+  animate();
+
+}
+
+
+
+function animate(){move++;setTimeout(function(){approach_range();},50);}
+
+
+
+// Anzeigebereich festlegen 
+
+function approach_range(){
+
+  if (!desired_range) return;
+
+  if(move>=8){    // (do not set another timeout.)
+
+    beelogger.updateOptions({dateWindow: desired_range});
+
+    berechne_sum();konfig_Axes();move=0;
+
+  }else{  // go halfway there
+
+    var range=beelogger.xAxisRange();
+
+    var new_range;
+
+    new_range = [0.5*(desired_range[0]+range[0]),0.5*(desired_range[1]+range[1])];
+
+    beelogger.updateOptions({dateWindow:new_range});
+
+    animate();move++;
+
+  }
+
+}
+
+</script>
+
+<script src="assets/js/bootstrap.bundle.js"></script>  
+
+<script type="text/javascript" charset="utf-8">
+
+// start tooltip
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+
+    })
+
+//end tooltip
+
+   
+
+</script>  
+
+</body>
+
+</html>
