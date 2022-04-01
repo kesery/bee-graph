@@ -1,0 +1,30 @@
+{
+  "name": "beegraph",
+  "version": "1.0.0",
+  "description": "Bee monitoring system\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dhive\u001b[2~mon\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[D \u001b[2~monitoring system",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss:assets/css"
+  },
+  "keywords": [
+    "beegraph",
+    "bee-scale",
+    "beehave",
+    "monitoring",
+    "кантар",
+    "кошери",
+    "пчелен"
+  ],
+  "author": "Rumen Keserdzhiev",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.49.7"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "autoprefixer": "^10.4.2",
+    "bootstrap": "^5.1.3",
+    "dygraphs": "^2.1.0",
+    "postcss-cli": "^9.1.0"
+  }
+}
